@@ -142,15 +142,15 @@ h1 em{display:block;margin-left:12%;font-weight:400}
 }
 .closing-bg{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;opacity:.58;
+  object-fit:cover;object-position:center;opacity:.78;
   filter:saturate(.72) contrast(1.05);
   z-index:-2;
 }
 .closing-overlay{
   position:absolute;inset:0;
   background:
-    radial-gradient(circle at center,rgba(10,24,55,.18),rgba(10,24,55,.84) 72%),
-    linear-gradient(180deg,rgba(10,24,55,.55),rgba(7,17,40,.92));
+    radial-gradient(circle at center,rgba(10,24,55,.08),rgba(10,24,55,.58) 72%),
+    linear-gradient(180deg,rgba(10,24,55,.30),rgba(7,17,40,.70));
   z-index:-1;
 }
 .closing-content{text-align:center;padding:8vw 5vw;position:relative}
@@ -186,30 +186,30 @@ body{overflow-x:hidden}
   .hero h1{animation-delay:.08s}
   .hero .hero-copy{animation-delay:.16s}
   .hero .hero-actions{animation-delay:.24s}
-  .work-card,.section-head,.about-grid,.contact-grid,.closing-content{
+  .work,.section-head,.about,.contact,.closing-content{
     opacity:0;transform:translateY(28px);
     transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);
   }
-  .work-card.is-visible,.section-head.is-visible,.about-grid.is-visible,
-  .contact-grid.is-visible,.closing-content.is-visible{
+  .work.is-visible,.section-head.is-visible,.about.is-visible,
+  .contact.is-visible,.closing-content.is-visible{
     opacity:1;transform:none;
   }
-  .work-card:nth-child(2){transition-delay:.06s}
-  .work-card:nth-child(3){transition-delay:.12s}
-  .work-card:nth-child(4){transition-delay:.18s}
-  .work-card:nth-child(5){transition-delay:.24s}
-  .work-card:nth-child(6){transition-delay:.30s}
-  .work-card img,.work-card .art-visual{
+  .work:nth-child(2){transition-delay:.06s}
+  .work:nth-child(3){transition-delay:.12s}
+  .work:nth-child(4){transition-delay:.18s}
+  .work:nth-child(5){transition-delay:.24s}
+  .work:nth-child(6){transition-delay:.30s}
+  .work img,.work .art-visual{
     transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s ease;
   }
-  .work-card:hover img,.work-card:hover .art-visual{
+  .work:hover img,.work:hover .art-visual{
     transform:scale(1.045);
     filter:saturate(1.06) contrast(1.03);
   }
-  .work-card .work-info{
+  .work .work-info{
     transition:transform .5s ease;
   }
-  .work-card:hover .work-info{transform:translateY(-3px)}
+  .work:hover .work-info{transform:translateY(-3px)}
   .closing-bg{
     animation:slowPan 18s ease-in-out infinite alternate;
     transform:scale(1.06);
@@ -251,6 +251,24 @@ body{overflow-x:hidden}
   .footer{padding:22px 18px;font-size:8px}
   .modal-inner{padding:20px 18px 40px}.modal-main-image img{height:48vh}
 }
+
+.whatsapp-float{
+  position:fixed;right:24px;bottom:24px;width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;
+  z-index:60;box-shadow:0 12px 35px rgba(0,0,0,.28);transition:transform .25s ease,box-shadow .25s ease;
+  font-size:24px;font-weight:600;
+}
+.whatsapp-float:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 16px 42px rgba(0,0,0,.38)}
+
+
+@keyframes pageGlow{
+  0%{opacity:.65;transform:translateY(8px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .nav{animation:pageGlow .7s ease both}
+}
+
 </style>
 </head>
 <body>
@@ -286,11 +304,22 @@ body{overflow-x:hidden}
 <section class="section" id="collection">
   <div class="section-head">
     <div class="section-title">The Collection</div>
-    <div class="section-note">Five selected works · 2024—2026</div>
+    <div class="section-note">Six selected works · 2024—2026</div>
   </div>
 
   <div class="gallery">
     <article class="work" onclick="openWork(0)">
+      <div class="work-img">
+        <img src="images/leogundy_01.jpg" alt="Leogundy">
+        <div class="count">04 PHOTOS</div>
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">Leogundy</div><div class="work-type">Oil on Canvas · Czech Crystals</div></div>
+        <div class="work-meta">160 × 100 cm<br>2026</div>
+      </div>
+    </article>
+
+    <article class="work" onclick="openWork(1)">
       <div class="work-img">
         <img src="images/gazelle_02.jpg" alt="The Gazelle">
         <div class="count">03 PHOTOS</div>
@@ -301,7 +330,7 @@ body{overflow-x:hidden}
       </div>
     </article>
 
-    <article class="work" onclick="openWork(1)">
+    <article class="work" onclick="openWork(2)">
       <div class="work-img">
         <img src="images/mirrored_wings_01.jpg" alt="Mirrored Wings">
         <div class="count">05 PHOTOS</div>
@@ -312,7 +341,7 @@ body{overflow-x:hidden}
       </div>
     </article>
 
-    <article class="work" onclick="openWork(2)">
+    <article class="work" onclick="openWork(3)">
       <div class="work-img">
         <img src="images/last_call_01.jpg" alt="Last Call">
         <div class="count">02 PHOTOS</div>
@@ -323,7 +352,7 @@ body{overflow-x:hidden}
       </div>
     </article>
 
-    <article class="work" onclick="openWork(3)">
+    <article class="work" onclick="openWork(4)">
       <div class="work-img">
         <img src="images/contrast_02.jpg" alt="Aurelia">
         <div class="count">02 PHOTOS</div>
@@ -334,7 +363,7 @@ body{overflow-x:hidden}
       </div>
     </article>
 
-    <article class="work" onclick="openWork(4)">
+    <article class="work" onclick="openWork(5)">
       <div class="work-img">
         <img src="images/contrast_swapped.jpg" alt="Contrast">
       </div>
@@ -370,6 +399,10 @@ body{overflow-x:hidden}
       <div class="contact-value"><a href="mailto:info@masrrauniqueart.com">info@masrrauniqueart.com</a></div>
     </div>
     <div class="contact-card" style="margin-top:45px">
+      <div class="contact-label">WhatsApp</div>
+      <div class="contact-value"><a href="https://wa.me/218944377519" target="_blank" rel="noopener">+218 94 437 7519</a></div>
+    </div>
+    <div class="contact-card" style="margin-top:45px">
       <div class="contact-label">Masrra Unique Art</div>
       <div class="about-small">For availability, commissions or additional artwork details, get in touch with the gallery.</div>
     </div>
@@ -393,6 +426,9 @@ body{overflow-x:hidden}
   <div>© 2026 Masrra Unique Art</div>
   <div>Unique Art · Selected Collection</div>
 </footer>
+
+
+<a class="whatsapp-float" href="https://wa.me/218944377519" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">⌕</a>
 
 <div class="modal" id="modal" aria-hidden="true">
   <div class="modal-inner">
@@ -418,8 +454,19 @@ body{overflow-x:hidden}
 <script>
 const works = [
   {
-    title:"The Gazelle",
+    title:"Leogundy",
     kicker:"01 · 2026",
+    images:["images/leogundy_01.jpg","images/leogundy_02.jpg","images/leogundy_03.jpg","images/leogundy_04.jpg"],
+    details:[
+      ["Medium","Oil on Canvas"],
+      ["Technique","Hand-Applied Czech Crystals"],
+      ["Size","160 × 100 cm"],
+      ["Year","2026"]
+    ]
+  },
+  {
+    title:"The Gazelle",
+    kicker:"02 · 2026",
     images:["images/gazelle_02.jpg","images/gazelle_01.jpg","images/gazelle_detail.jpg"],
     details:[
       ["Medium","Oil on Canvas"],
@@ -430,7 +477,7 @@ const works = [
   },
   {
     title:"Mirrored Wings",
-    kicker:"02 · 2025",
+    kicker:"03 · 2025",
     images:["images/mirrored_wings_01.jpg","images/mirrored_wings_02.jpg","images/mirrored_wings_03.jpg","images/mirrored_wings_04.jpg","images/mirrored_wings_05.jpg"],
     details:[
       ["Medium","Handcrafted Artistic Mirror"],
@@ -450,7 +497,7 @@ const works = [
   },
   {
     title:"Aurelia",
-    kicker:"04 · 2024",
+    kicker:"05 · 2024",
     images:["images/contrast_02.jpg","images/contrast_01.jpg"],
     details:[
       ["Medium","Oil on Canvas"],
@@ -460,7 +507,7 @@ const works = [
   },
   {
     title:"Contrast",
-    kicker:"05 · 2024",
+    kicker:"06 · 2024",
     images:["images/contrast_swapped.jpg"],
     details:[
       ["Medium","Acrylic on Canvas"],
@@ -519,7 +566,7 @@ document.addEventListener("keydown",e=>{
 (function(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const targets = document.querySelectorAll(
-    '.work-card,.section-head,.about-grid,.contact-grid,.closing-content'
+    '.work,.section-head,.about,.contact,.closing-content'
   );
   const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
