@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masrra Unique Art — Collection</title>
+<meta name="description" content="Masrra Unique Art — a curated collection of paintings, handcrafted mirrors and crystal-detailed artworks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1837;
+  --navy-2:#071128;
+  --cream:#F3EFE7;
+  --muted:#AEB7C8;
+  --line:#263653;
+  --gold:#C9A86A;
+  --white:#fffdf8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--cream);font-family:"DM Sans",Arial,sans-serif}
+body.lock{overflow:hidden}
+::selection{background:var(--cream);color:var(--navy)}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.nav{
+  height:82px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:rgba(10,24,55,.94);backdrop-filter:blur(18px);z-index:50
+}
+.logo img{width:178px;height:auto;display:block}
+.navlinks{display:flex;gap:34px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.navlinks a{opacity:.82;transition:.25s}
+.navlinks a:hover{opacity:1;color:var(--gold)}
+.hero{
+  min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.02fr .98fr;
+  padding:4vw 5vw;gap:5vw;align-items:stretch
+}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:4vw 0}
+.eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+h1{
+  font-family:"Playfair Display",serif;font-size:clamp(58px,8.5vw,140px);
+  font-weight:400;line-height:.84;letter-spacing:-.055em;margin:0 0 34px
+}
+h1 em{display:block;margin-left:12%;font-weight:400}
+.hero-text{max-width:450px;color:var(--muted);font-size:14px;line-height:1.9}
+.cta{
+  margin-top:34px;display:inline-flex;align-items:center;gap:24px;width:max-content;
+  padding-bottom:10px;border-bottom:1px solid var(--cream);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;transition:.25s
+}
+.cta span{font-size:18px;line-height:0;transition:.25s}
+.cta:hover{color:var(--gold);border-color:var(--gold)}
+.cta:hover span{transform:translateX(5px)}
+.hero-art{position:relative;min-height:690px;overflow:hidden;background:#121d36}
+.hero-art img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9)}
+.hero-art:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,24,55,.05),rgba(10,24,55,.25))
+}
+.hero-caption{position:absolute;left:22px;bottom:20px;z-index:2;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.section{padding:9vw 5vw}
+.section-head{
+  display:flex;justify-content:space-between;align-items:end;
+  border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:58px
+}
+.section-title{font:400 clamp(42px,6vw,84px)/.9 "Playfair Display",serif;letter-spacing:-.04em}
+.section-note{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:72px 28px}
+.work{cursor:pointer}
+.work:nth-child(1){grid-column:1/6}
+.work:nth-child(2){grid-column:7/13;margin-top:100px}
+.work:nth-child(3){grid-column:2/7}
+.work:nth-child(4){grid-column:8/13;margin-top:90px}
+.work:nth-child(5){grid-column:1/7;margin-top:20px}
+.work:nth-child(6){grid-column:8/13;margin-top:110px}
+.work-img{background:#111f3d;aspect-ratio:4/5;overflow:hidden;position:relative}
+.work:nth-child(3) .work-img{aspect-ratio:1.1/1}
+.work:nth-child(5) .work-img{aspect-ratio:1.45/1}
+.work:nth-child(6) .work-img{aspect-ratio:4/5}
+.work-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s}
+.work:hover .work-img img{transform:scale(1.045);filter:saturate(1.04)}
+.work-img .count{
+  position:absolute;right:14px;top:14px;padding:8px 10px;
+  background:rgba(10,24,55,.78);font-size:9px;letter-spacing:.13em;z-index:2
+}
+.work-info{display:grid;grid-template-columns:1fr auto;gap:20px;padding-top:18px}
+.work-title{font:400 27px/1 "Playfair Display",serif}
+.work-meta{font-size:10px;line-height:1.7;color:var(--muted);text-align:right;text-transform:uppercase;letter-spacing:.09em}
+.work-type{font-size:10px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;margin-top:8px}
+.about{
+  background:var(--navy-2);display:grid;grid-template-columns:1fr 1.15fr;
+  gap:8vw;align-items:start
+}
+.about .section-title{position:sticky;top:130px}
+.about-copy{font:400 clamp(24px,3vw,42px)/1.25 "Playfair Display",serif;max-width:720px}
+.about-copy p{margin:0 0 28px}
+.about-small{font-family:"DM Sans",sans-serif;font-size:12px;line-height:1.9;color:var(--muted);max-width:590px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.contact-card{border-top:1px solid var(--line);padding-top:22px}
+.contact-label{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.contact-value{font:400 clamp(25px,3vw,44px) "Playfair Display",serif}
+.footer{
+  padding:26px 5vw;border-top:1px solid var(--line);display:flex;
+  justify-content:space-between;color:var(--muted);font-size:9px;letter-spacing:.13em;text-transform:uppercase
+}
+.modal{
+  position:fixed;inset:0;background:rgba(3,8,20,.96);z-index:100;
+  display:none;overflow:auto
+}
+.modal.open{display:block}
+.modal-inner{min-height:100%;padding:30px 5vw 50px}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.modal-brand{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.close{
+  border:1px solid var(--line);background:none;color:var(--cream);width:42px;height:42px;
+  border-radius:50%;cursor:pointer;font-size:22px;line-height:1;transition:.25s
+}
+.close:hover{background:var(--cream);color:var(--navy)}
+.modal-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:5vw;align-items:start}
+.modal-main-image{background:#101b34;min-height:65vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.modal-main-image img{width:100%;height:65vh;object-fit:contain;display:block}
+.modal-info{padding-top:5vh}
+.modal-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.modal-title{font:400 clamp(45px,6vw,82px)/.9 "Playfair Display",serif;margin:0 0 35px}
+.details{border-top:1px solid var(--line)}
+.detail{display:grid;grid-template-columns:100px 1fr;padding:15px 0;border-bottom:1px solid var(--line);font-size:11px}
+.detail span:first-child{color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.thumbs{display:flex;gap:9px;overflow:auto;margin-top:18px;padding-bottom:5px}
+.thumb{flex:0 0 74px;height:92px;border:1px solid transparent;padding:0;background:none;cursor:pointer;opacity:.55}
+.thumb.active,.thumb:hover{opacity:1;border-color:var(--gold)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.modal-counter{margin-top:15px;color:var(--muted);font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+
+.closing{
+  position:relative;min-height:88vh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  border-top:1px solid var(--line);isolation:isolate;
+}
+.closing-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;opacity:.58;
+  filter:saturate(.72) contrast(1.05);
+  z-index:-2;
+}
+.closing-overlay{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at center,rgba(10,24,55,.18),rgba(10,24,55,.84) 72%),
+    linear-gradient(180deg,rgba(10,24,55,.55),rgba(7,17,40,.92));
+  z-index:-1;
+}
+.closing-content{text-align:center;padding:8vw 5vw;position:relative}
+.closing-kicker{
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:28px
+}
+.closing h2{
+  font:400 clamp(54px,9vw,132px)/.88 "Playfair Display",serif;
+  letter-spacing:-.055em;margin:0;
+}
+.closing p{
+  margin:28px auto 0;color:var(--muted);font-size:13px;line-height:1.8;
+}
+.closing-cta{
+  margin-top:34px;display:inline-flex;align-items:center;gap:20px;
+  padding-bottom:10px;border-bottom:1px solid var(--cream);
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  transition:.25s
+}
+.closing-cta span{font-size:18px;line-height:0;transition:.25s}
+.closing-cta:hover{color:var(--gold);border-color:var(--gold)}
+.closing-cta:hover span{transform:translateY(-4px)}
+
+
+/* Portfolio motion system */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .hero .eyebrow,.hero h1,.hero .hero-copy,.hero .hero-actions{
+    animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero h1{animation-delay:.08s}
+  .hero .hero-copy{animation-delay:.16s}
+  .hero .hero-actions{animation-delay:.24s}
+  .work-card,.section-head,.about-grid,.contact-grid,.closing-content{
+    opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .work-card.is-visible,.section-head.is-visible,.about-grid.is-visible,
+  .contact-grid.is-visible,.closing-content.is-visible{
+    opacity:1;transform:none;
+  }
+  .work-card:nth-child(2){transition-delay:.06s}
+  .work-card:nth-child(3){transition-delay:.12s}
+  .work-card:nth-child(4){transition-delay:.18s}
+  .work-card:nth-child(5){transition-delay:.24s}
+  .work-card:nth-child(6){transition-delay:.30s}
+  .work-card img,.work-card .art-visual{
+    transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+  }
+  .work-card:hover img,.work-card:hover .art-visual{
+    transform:scale(1.045);
+    filter:saturate(1.06) contrast(1.03);
+  }
+  .work-card .work-info{
+    transition:transform .5s ease;
+  }
+  .work-card:hover .work-info{transform:translateY(-3px)}
+  .closing-bg{
+    animation:slowPan 18s ease-in-out infinite alternate;
+    transform:scale(1.06);
+  }
+  .closing h2{animation:softFloat 5s ease-in-out infinite alternate}
+}
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}
+@keyframes slowPan{
+  from{transform:scale(1.06) translate3d(-1%,0,0)}
+  to{transform:scale(1.12) translate3d(1%, -1%,0)}
+}
+@keyframes softFloat{
+  from{transform:translateY(0)}
+  to{transform:translateY(-5px)}
+}
+
+@media(max-width:900px){
+  .nav{height:72px}.logo img{width:150px}.navlinks{gap:18px;font-size:9px}
+  .hero{grid-template-columns:1fr;padding:0 5vw 8vw;gap:30px}
+  .hero-copy{padding:14vw 0 4vw}.hero-art{min-height:78vh}
+  .gallery{display:grid;grid-template-columns:1fr;gap:60px}
+  .work,.work:nth-child(n){grid-column:1;margin:0}
+  .work-img,.work:nth-child(3) .work-img,.work:nth-child(5) .work-img,.work:nth-child(6) .work-img{aspect-ratio:4/5}
+  .about,.contact{grid-template-columns:1fr;gap:45px}
+  .about .section-title{position:static}
+  .modal-grid{grid-template-columns:1fr}.modal-main-image{min-height:50vh}.modal-main-image img{height:55vh}
+}
+@media(max-width:560px){
+  .nav{padding:0 18px}.navlinks{display:none}
+  .hero,.section{padding-left:18px;padding-right:18px}
+  .hero{padding-bottom:18px}.hero-art{min-height:68vh}
+  h1{font-size:18vw}
+  .section{padding-top:18vw;padding-bottom:18vw}
+  .section-head{margin-bottom:38px}.section-note{font-size:8px}
+  .work-title{font-size:24px}.work-meta{font-size:8px}
+  .footer{padding:22px 18px;font-size:8px}
+  .modal-inner{padding:20px 18px 40px}.modal-main-image img{height:48vh}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="#top" aria-label="Masrra Unique Art">
+    <img src="https://i.ibb.co/HDVgBTwr/Asset-1-4x.png" alt="Masrra Unique Art">
+  </a>
+  <nav class="navlinks">
+    <a href="#collection">Collection</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Masrra Unique Art · Selected Works</div>
+    <h1>Art<br><em>with presence.</em></h1>
+    <p class="hero-text">
+      A curated collection of paintings and handcrafted artistic pieces,
+      created to bring character, texture and quiet luxury into contemporary spaces.
+    </p>
+    <a class="cta" href="#collection">Explore the collection <span>→</span></a>
+  </div>
+  <div class="hero-art">
+    <img src="images/gazelle_02.jpg" alt="The Gazelle artwork">
+    <div class="hero-caption">01 / The Gazelle · 2026</div>
+  </div>
+</section>
+
+<section class="section" id="collection">
+  <div class="section-head">
+    <div class="section-title">The Collection</div>
+    <div class="section-note">Five selected works · 2024—2026</div>
+  </div>
+
+  <div class="gallery">
+    <article class="work" onclick="openWork(0)">
+      <div class="work-img">
+        <img src="images/gazelle_02.jpg" alt="The Gazelle">
+        <div class="count">03 PHOTOS</div>
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">The Gazelle</div><div class="work-type">Oil on Canvas · Czech Crystals</div></div>
+        <div class="work-meta">160 × 100 cm<br>2026</div>
+      </div>
+    </article>
+
+    <article class="work" onclick="openWork(1)">
+      <div class="work-img">
+        <img src="images/mirrored_wings_01.jpg" alt="Mirrored Wings">
+        <div class="count">05 PHOTOS</div>
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">Mirrored Wings</div><div class="work-type">Handcrafted Artistic Mirror</div></div>
+        <div class="work-meta">270 × 80 cm<br>2025</div>
+      </div>
+    </article>
+
+    <article class="work" onclick="openWork(2)">
+      <div class="work-img">
+        <img src="images/last_call_01.jpg" alt="Last Call">
+        <div class="count">02 PHOTOS</div>
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">Last Call</div><div class="work-type">Oil on Canvas</div></div>
+        <div class="work-meta">190 × 110 cm<br>2025</div>
+      </div>
+    </article>
+
+    <article class="work" onclick="openWork(3)">
+      <div class="work-img">
+        <img src="images/contrast_02.jpg" alt="Aurelia">
+        <div class="count">02 PHOTOS</div>
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">Aurelia</div><div class="work-type">Oil on Canvas</div></div>
+        <div class="work-meta">100 × 70 cm<br>2024</div>
+      </div>
+    </article>
+
+    <article class="work" onclick="openWork(4)">
+      <div class="work-img">
+        <img src="images/contrast_swapped.jpg" alt="Contrast">
+      </div>
+      <div class="work-info">
+        <div><div class="work-title">Contrast</div><div class="work-type">Acrylic on Canvas</div></div>
+        <div class="work-meta">160 × 110 cm<br>2024</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-title">About<br>the art.</div>
+  <div>
+    <div class="about-copy">
+      <p>Masrra Unique Art brings together expressive paintings and handcrafted pieces where material, light and detail become part of the artwork itself.</p>
+      <p>Each work is presented as an object with presence — made to be lived with, collected and remembered.</p>
+    </div>
+    <div class="about-small">
+      Selected works include oil and acrylic paintings, hand-applied Czech crystals and handcrafted artistic mirrors.
+      The collection is presented with a focus on craftsmanship, atmosphere and contemporary interiors.
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div>
+    <div class="section-title">Inquire.</div>
+  </div>
+  <div>
+    
+    </div>
+    <div class="contact-card" style="margin-top:45px">
+      <div class="contact-label">Masrra Unique Art</div>
+      <div class="about-small">For availability, commissions or additional artwork details, get in touch with the gallery.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<section class="closing" id="thanks">
+  <img class="closing-bg" src="images/thanks_background.png" alt="" aria-hidden="true">
+  <div class="closing-overlay"></div>
+  <div class="closing-content">
+    <div class="closing-kicker">Masrra Unique Art · Portfolio</div>
+    <h2>Thanks For Watching</h2>
+    <p>Thank you for exploring the collection.</p>
+    <a class="closing-cta" href="#top">Back to the beginning <span>↑</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>© 2026 Masrra Unique Art</div>
+  <div>Unique Art · Selected Collection</div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <div class="modal-brand">Masrra Unique Art · Artwork</div>
+      <button class="close" onclick="closeModal()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-grid">
+      <div>
+        <div class="modal-main-image"><img id="modalImage" src="" alt=""></div>
+        <div class="thumbs" id="thumbs"></div>
+        <div class="modal-counter" id="counter"></div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-kicker" id="modalKicker"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="details" id="details"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const works = [
+  {
+    title:"The Gazelle",
+    kicker:"01 · 2026",
+    images:["images/gazelle_02.jpg","images/gazelle_01.jpg","images/gazelle_detail.jpg"],
+    details:[
+      ["Medium","Oil on Canvas"],
+      ["Technique","Hand-Applied Czech Crystals"],
+      ["Size","160 × 100 cm"],
+      ["Year","2026"]
+    ]
+  },
+  {
+    title:"Mirrored Wings",
+    kicker:"02 · 2025",
+    images:["images/mirrored_wings_01.jpg","images/mirrored_wings_02.jpg","images/mirrored_wings_03.jpg","images/mirrored_wings_04.jpg","images/mirrored_wings_05.jpg"],
+    details:[
+      ["Medium","Handcrafted Artistic Mirror"],
+      ["Size","270 × 80 cm"],
+      ["Year","2025"]
+    ]
+  },
+  {
+    title:"Last Call",
+    kicker:"04 · 2025",
+    images:["images/last_call_01.jpg","images/last_call_02.jpg"],
+    details:[
+      ["Medium","Oil on Canvas"],
+      ["Size","190 × 110 cm"],
+      ["Year","2025"]
+    ]
+  },
+  {
+    title:"Aurelia",
+    kicker:"04 · 2024",
+    images:["images/contrast_02.jpg","images/contrast_01.jpg"],
+    details:[
+      ["Medium","Oil on Canvas"],
+      ["Size","100 × 70 cm"],
+      ["Year","2024"]
+    ]
+  },
+  {
+    title:"Contrast",
+    kicker:"05 · 2024",
+    images:["images/contrast_swapped.jpg"],
+    details:[
+      ["Medium","Acrylic on Canvas"],
+      ["Size","160 × 110 cm"],
+      ["Year","2024"]
+    ]
+  }
+];
+
+let activeWork = 0;
+let activeImage = 0;
+
+function openWork(index){
+  activeWork=index; activeImage=0;
+  const w=works[index];
+  document.getElementById("modal").classList.add("open");
+  document.getElementById("modal").setAttribute("aria-hidden","false");
+  document.body.classList.add("lock");
+  renderModal();
+}
+function closeModal(){
+  document.getElementById("modal").classList.remove("open");
+  document.getElementById("modal").setAttribute("aria-hidden","true");
+  document.body.classList.remove("lock");
+}
+function renderModal(){
+  const w=works[activeWork];
+  document.getElementById("modalTitle").textContent=w.title;
+  document.getElementById("modalKicker").textContent=w.kicker;
+  document.getElementById("modalImage").src=w.images[activeImage];
+  document.getElementById("modalImage").alt=w.title;
+  document.getElementById("counter").textContent=`Image ${activeImage+1} of ${w.images.length}`;
+  document.getElementById("details").innerHTML=w.details.map(d=>`<div class="detail"><span>${d[0]}</span><span>${d[1]}</span></div>`).join("");
+  document.getElementById("thumbs").innerHTML=w.images.map((src,i)=>`
+    <button class="thumb ${i===activeImage?'active':''}" onclick="setImage(${i})" aria-label="View image ${i+1}">
+      <img src="${src}" alt="">
+    </button>`).join("");
+}
+function setImage(i){activeImage=i;renderModal()}
+document.getElementById("modal").addEventListener("click",e=>{
+  if(e.target.id==="modal") closeModal();
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closeModal();
+  if(!document.getElementById("modal").classList.contains("open")) return;
+  if(e.key==="ArrowRight"){
+    activeImage=(activeImage+1)%works[activeWork].images.length; renderModal();
+  }
+  if(e.key==="ArrowLeft"){
+    activeImage=(activeImage-1+works[activeWork].images.length)%works[activeWork].images.length; renderModal();
+  }
+});
+</script>
+
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const targets = document.querySelectorAll(
+    '.work-card,.section-head,.about-grid,.contact-grid,.closing-content'
+  );
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+  targets.forEach(el => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
