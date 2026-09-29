@@ -69,18 +69,15 @@ h1 em{display:block;margin-left:12%;font-weight:400}
 }
 .section-title{font:400 clamp(42px,6vw,84px)/.9 "Playfair Display",serif;letter-spacing:-.04em}
 .section-note{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:72px 28px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:-28px 0 42px}
+.filter-button{padding:11px 14px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:.25s}
+.filter-button:hover,.filter-button.active{border-color:var(--gold);color:var(--cream)}
+.filter-button.active{background:rgba(201,168,106,.1)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:58px 28px}
 .work{cursor:pointer}
-.work:nth-child(1){grid-column:1/6}
-.work:nth-child(2){grid-column:7/13;margin-top:100px}
-.work:nth-child(3){grid-column:2/7}
-.work:nth-child(4){grid-column:8/13;margin-top:90px}
-.work:nth-child(5){grid-column:1/7;margin-top:20px}
-.work:nth-child(6){grid-column:8/13;margin-top:110px}
+.work,.work:nth-child(n){grid-column:auto;margin:0}
 .work-img{background:#111f3d;aspect-ratio:4/5;overflow:hidden;position:relative}
-.work:nth-child(3) .work-img{aspect-ratio:1.1/1}
-.work:nth-child(5) .work-img{aspect-ratio:1.45/1}
-.work:nth-child(6) .work-img{aspect-ratio:4/5}
+.work-no-image{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:20px;color:var(--muted);font-size:10px;letter-spacing:.16em;text-align:center;text-transform:uppercase}
 .work-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s}
 .work:hover .work-img img{transform:scale(1.045);filter:saturate(1.04)}
 .work-img .count{
@@ -123,6 +120,7 @@ h1 em{display:block;margin-left:12%;font-weight:400}
 .modal-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:5vw;align-items:start}
 .modal-main-image{background:#101b34;min-height:65vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .modal-main-image img{width:100%;height:65vh;object-fit:contain;display:block}
+.image-missing{display:none;color:var(--muted);font-size:10px;letter-spacing:.16em;text-align:center;text-transform:uppercase}
 .modal-info{padding-top:5vh}
 .modal-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .modal-title{font:400 clamp(45px,6vw,82px)/.9 "Playfair Display",serif;margin:0 0 35px}
@@ -233,14 +231,13 @@ body{overflow-x:hidden}
   .nav{height:72px}.logo img{width:150px}.navlinks{gap:18px;font-size:9px}
   .hero{grid-template-columns:1fr;padding:0 5vw 8vw;gap:30px}
   .hero-copy{padding:14vw 0 4vw}.hero-art{min-height:78vh}
-  .gallery{display:grid;grid-template-columns:1fr;gap:60px}
-  .work,.work:nth-child(n){grid-column:1;margin:0}
-  .work-img,.work:nth-child(3) .work-img,.work:nth-child(5) .work-img,.work:nth-child(6) .work-img{aspect-ratio:4/5}
+  .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 20px}
   .about,.contact{grid-template-columns:1fr;gap:45px}
   .about .section-title{position:static}
   .modal-grid{grid-template-columns:1fr}.modal-main-image{min-height:50vh}.modal-main-image img{height:55vh}
 }
 @media(max-width:560px){
+  .gallery{grid-template-columns:1fr;gap:42px}
   .nav{padding:0 18px}.navlinks{display:none}
   .hero,.section{padding-left:18px;padding-right:18px}
   .hero{padding-bottom:18px}.hero-art{min-height:68vh}
@@ -296,7 +293,7 @@ body{overflow-x:hidden}
     <a class="cta" href="#collection">Explore the collection <span>→</span></a>
   </div>
   <div class="hero-art">
-    <img src="images/gazelle_02.jpg" alt="The Gazelle artwork">
+    <img src="images/works/the-gazelle/gazelle_02.jpg" alt="The Gazelle artwork">
     <div class="hero-caption">01 / The Gazelle · 2026</div>
   </div>
 </section>
@@ -304,83 +301,18 @@ body{overflow-x:hidden}
 <section class="section" id="collection">
   <div class="section-head">
     <div class="section-title">The Collection</div>
-    <div class="section-note">Six selected works · 2024—2026</div>
+  <div class="section-note" id="collectionNote"></div>
   </div>
 
-  <div class="gallery">
-    <article class="work" onclick="openWork(0)">
-      <div class="work-img">
-        <img src="images/leogundy_01.jpg" alt="Leogundy">
-        <div class="count">04 PHOTOS</div>
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">Leogundy</div><div class="work-type">Oil on Canvas · Czech Crystals</div></div>
-        <div class="work-meta">160 × 100 cm<br>2026</div>
-      </div>
-    </article>
-
-    <article class="work" onclick="openWork(1)">
-      <div class="work-img">
-        <img src="images/gazelle_02.jpg" alt="The Gazelle">
-        <div class="count">03 PHOTOS</div>
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">The Gazelle</div><div class="work-type">Oil on Canvas · Czech Crystals</div></div>
-        <div class="work-meta">160 × 100 cm<br>2026</div>
-      </div>
-    </article>
-
-    <article class="work" onclick="openWork(2)">
-      <div class="work-img">
-        <img src="images/mirrored_wings_01.jpg" alt="Mirrored Wings">
-        <div class="count">05 PHOTOS</div>
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">Mirrored Wings</div><div class="work-type">Handcrafted Artistic Mirror</div></div>
-        <div class="work-meta">270 × 80 cm<br>2025</div>
-      </div>
-    </article>
-
-    <article class="work" onclick="openWork(3)">
-      <div class="work-img">
-        <img src="images/last_call_01.jpg" alt="Last Call">
-        <div class="count">02 PHOTOS</div>
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">Last Call</div><div class="work-type">Oil on Canvas</div></div>
-        <div class="work-meta">190 × 110 cm<br>2025</div>
-      </div>
-    </article>
-
-    <article class="work" onclick="openWork(4)">
-      <div class="work-img">
-        <img src="images/contrast_02.jpg" alt="Aurelia">
-        <div class="count">02 PHOTOS</div>
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">Aurelia</div><div class="work-type">Oil on Canvas</div></div>
-        <div class="work-meta">100 × 70 cm<br>2024</div>
-      </div>
-    </article>
-
-    <article class="work" onclick="openWork(5)">
-      <div class="work-img">
-        <img src="images/contrast_swapped.jpg" alt="Contrast">
-      </div>
-      <div class="work-info">
-        <div><div class="work-title">Contrast</div><div class="work-type">Acrylic on Canvas</div></div>
-        <div class="work-meta">160 × 110 cm<br>2024</div>
-      </div>
-    </article>
-  </div>
+  <div class="filters" id="collectionFilters" role="group" aria-label="Filter by medium"></div>
+  <div class="gallery" id="gallery"></div>
 </section>
 
 <section class="section about" id="about">
   <div class="section-title">About<br>the art.</div>
   <div>
     <div class="about-copy">
-      <p>Masrra Unique Art brings together expressive paintings and handcrafted pieces where material, light and detail become part of the artwork itself.</p>
-      <p>Each work is presented as an object with presence — made to be lived with, collected and remembered.</p>
+      <p>Art has always been a world of endless possibilities for me. I am a self-taught artist, and my journey has been shaped by curiosity, practice, and the freedom to discover art in my own way. I was never drawn to staying within one school, medium, or visual language. I want to explore them all—to move between techniques, styles, and ideas, and give each vision the form it deserves. For me, art is not about choosing one path; it is about having the freedom to create my own.</p>
     </div>
     <div class="about-small">
       Selected works include oil and acrylic paintings, hand-applied Czech crystals and handcrafted artistic mirrors.
@@ -436,7 +368,7 @@ body{overflow-x:hidden}
     </div>
     <div class="modal-grid">
       <div>
-        <div class="modal-main-image"><img id="modalImage" src="" alt=""></div>
+        <div class="modal-main-image"><img id="modalImage" src="" alt=""><div class="image-missing" id="modalImageNote">Photos not provided</div></div>
         <div class="thumbs" id="thumbs"></div>
         <div class="modal-counter" id="counter"></div>
       </div>
@@ -449,78 +381,70 @@ body{overflow-x:hidden}
   </div>
 </div>
 
+<script src="collection-data.js"></script>
 <script>
-const works = [
-  {
-    title:"Leogundy",
-    kicker:"01 · 2026",
-    images:["images/leogundy_01.jpg","images/leogundy_02.jpg","images/leogundy_03.jpg","images/leogundy_04.jpg"],
-    details:[
-      ["Medium","Oil on Canvas"],
-      ["Technique","Hand-Applied Czech Crystals"],
-      ["Size","160 × 100 cm"],
-      ["Year","2026"]
-    ]
-  },
-  {
-    title:"The Gazelle",
-    kicker:"02 · 2026",
-    images:["images/gazelle_02.jpg","images/gazelle_01.jpg","images/gazelle_detail.jpg"],
-    details:[
-      ["Medium","Oil on Canvas"],
-      ["Technique","Hand-Applied Czech Crystals"],
-      ["Size","160 × 100 cm"],
-      ["Year","2026"]
-    ]
-  },
-  {
-    title:"Mirrored Wings",
-    kicker:"03 · 2025",
-    images:["images/mirrored_wings_01.jpg","images/mirrored_wings_02.jpg","images/mirrored_wings_03.jpg","images/mirrored_wings_04.jpg","images/mirrored_wings_05.jpg"],
-    details:[
-      ["Medium","Handcrafted Artistic Mirror"],
-      ["Size","270 × 80 cm"],
-      ["Year","2025"]
-    ]
-  },
-  {
-    title:"Last Call",
-    kicker:"04 · 2025",
-    images:["images/last_call_01.jpg","images/last_call_02.jpg"],
-    details:[
-      ["Medium","Oil on Canvas"],
-      ["Size","190 × 110 cm"],
-      ["Year","2025"]
-    ]
-  },
-  {
-    title:"Aurelia",
-    kicker:"05 · 2024",
-    images:["images/contrast_02.jpg","images/contrast_01.jpg"],
-    details:[
-      ["Medium","Oil on Canvas"],
-      ["Size","100 × 70 cm"],
-      ["Year","2024"]
-    ]
-  },
-  {
-    title:"Contrast",
-    kicker:"06 · 2024",
-    images:["images/contrast_swapped.jpg"],
-    details:[
-      ["Medium","Acrylic on Canvas"],
-      ["Size","160 × 110 cm"],
-      ["Year","2024"]
-    ]
-  }
-];
+// The build script creates this list by scanning images/works.
+const Collection = window.CollectionData || [];
+const works = Collection;
+const gallery = document.getElementById("gallery");
+const collectionFilters = document.getElementById("collectionFilters");
+const mediumOptions = [...new Set(Collection.map(work => work.medium || "Other"))];
+let activeMedium = "all";
+
+function renderCollection(){
+  const visibleWorks = Collection.filter(work => activeMedium === "all" || (work.medium || "Other") === activeMedium);
+  gallery.innerHTML = visibleWorks.map(work => {
+    const index = Collection.indexOf(work);
+    return `
+      <article class="work" data-work-index="${index}" tabindex="0" role="button" aria-label="View ${escapeHtml(work.title)}">
+        <div class="work-img">
+          <img src="${escapeHtml(work.images[0])}" alt="${escapeHtml(work.title)}" loading="lazy">
+          ${work.images.length > 1 ? `<div class="count">${String(work.images.length).padStart(2,"0")} PHOTOS</div>` : ""}
+        </div>
+        <div class="work-info">
+          <div><div class="work-title">${escapeHtml(work.title)}</div><div class="work-type">${escapeHtml([work.medium || "Other", work.material].filter(Boolean).join(" · "))}</div></div>
+          <div class="work-meta">${escapeHtml(work.size)}<br>${escapeHtml(work.year)}</div>
+        </div>
+      </article>`;
+  }).join("");
+
+  const options = [{label:"All Mediums", value:"all"}, ...mediumOptions.map(medium => ({label:medium,value:medium}))];
+  collectionFilters.innerHTML = options.map(option => `
+    <button class="filter-button ${activeMedium === option.value ? "active" : ""}" data-medium="${escapeHtml(option.value)}" aria-pressed="${activeMedium === option.value}">${escapeHtml(option.label)}</button>`).join("");
+
+  const years = visibleWorks.map(work => Number(work.year)).filter(year => year > 0);
+  const yearRange = years.length ? ` · ${Math.min(...years)}—${Math.max(...years)}` : "";
+  document.getElementById("collectionNote").textContent = `${visibleWorks.length} selected works${yearRange}`;
+  if (window.refreshWorkReveal) window.refreshWorkReveal();
+}
+renderCollection();
+
+collectionFilters.addEventListener("click", event => {
+  const button = event.target.closest("[data-medium]");
+  if (!button) return;
+  activeMedium = button.dataset.medium;
+  renderCollection();
+});
+gallery.addEventListener("click", event => {
+  const card = event.target.closest("[data-work-index]");
+  if (card) openWork(Number(card.dataset.workIndex));
+});
+gallery.addEventListener("keydown", event => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const card = event.target.closest("[data-work-index]");
+  if (card) { event.preventDefault(); openWork(Number(card.dataset.workIndex)); }
+});
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+}
 
 let activeWork = 0;
 let activeImage = 0;
 
 function openWork(index){
   activeWork=index; activeImage=0;
-  const w=works[index];
+  if (!works[index]) return;
   document.getElementById("modal").classList.add("open");
   document.getElementById("modal").setAttribute("aria-hidden","false");
   document.body.classList.add("lock");
@@ -533,12 +457,18 @@ function closeModal(){
 }
 function renderModal(){
   const w=works[activeWork];
+  const hasImages=w.images.length > 0;
   document.getElementById("modalTitle").textContent=w.title;
-  document.getElementById("modalKicker").textContent=w.kicker;
-  document.getElementById("modalImage").src=w.images[activeImage];
-  document.getElementById("modalImage").alt=w.title;
-  document.getElementById("counter").textContent=`Image ${activeImage+1} of ${w.images.length}`;
-  document.getElementById("details").innerHTML=w.details.map(d=>`<div class="detail"><span>${d[0]}</span><span>${d[1]}</span></div>`).join("");
+  document.getElementById("modalKicker").textContent=`${String(activeWork+1).padStart(2,"0")} · ${w.year}`;
+  document.getElementById("modalImage").style.display=hasImages ? "block" : "none";
+  document.getElementById("modalImageNote").style.display=hasImages ? "none" : "block";
+  if (hasImages) {
+    document.getElementById("modalImage").src=w.images[activeImage];
+    document.getElementById("modalImage").alt=w.title;
+  }
+  document.getElementById("counter").textContent=hasImages ? `Image ${activeImage+1} of ${w.images.length}` : "Photos not provided";
+  const details = [["Medium",w.medium],["Material",w.material],["Size",w.size],["Year",w.year]].filter(([,value])=>value);
+  document.getElementById("details").innerHTML=details.map(([label,value])=>`<div class="detail"><span>${escapeHtml(label)}</span><span>${escapeHtml(value)}</span></div>`).join("");
   document.getElementById("thumbs").innerHTML=w.images.map((src,i)=>`
     <button class="thumb ${i===activeImage?'active':''}" onclick="setImage(${i})" aria-label="View image ${i+1}">
       <img src="${src}" alt="">
@@ -551,6 +481,7 @@ document.getElementById("modal").addEventListener("click",e=>{
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape") closeModal();
   if(!document.getElementById("modal").classList.contains("open")) return;
+  if(!works[activeWork].images.length) return;
   if(e.key==="ArrowRight"){
     activeImage=(activeImage+1)%works[activeWork].images.length; renderModal();
   }
@@ -574,6 +505,9 @@ document.addEventListener("keydown",e=>{
       }
     });
   }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+  window.refreshWorkReveal = () => {
+    document.querySelectorAll('.work:not(.is-visible)').forEach(el => io.observe(el));
+  };
   targets.forEach(el => io.observe(el));
 })();
 </script>
