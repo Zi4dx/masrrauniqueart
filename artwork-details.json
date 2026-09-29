@@ -1,0 +1,124 @@
+{
+  "river-garden": {
+    "title": "River Garden",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "100 × 70 cm",
+    "order": 1,
+    "cover": "IMG_5224.jpg"
+  },
+  "the-gazelle": {
+    "title": "The Gazelle",
+    "year": "2026",
+    "medium": "Oil on Canvas",
+    "material": "Hand-Applied Czech Crystals",
+    "size": "160 × 100 cm",
+    "order": 2,
+    "cover": "IMG_2028.jpg"
+  },
+  "leogundy": {
+    "title": "Leogundy",
+    "year": "2026",
+    "medium": "Oil on Canvas",
+    "material": "Hand-Applied Czech Crystals",
+    "size": "160 × 100 cm",
+    "order": 3,
+    "cover": "leogundy_02.jpg"
+  },
+  "the-last-call": {
+    "title": "The Last Call",
+    "year": "2025",
+    "medium": "Oil on Canvas",
+    "size": "190 × 110 cm",
+    "order": 4,
+    "cover": "last_call_01.jpg"
+  },
+  "aurelia-acrylic": {
+    "title": "Aurelia",
+    "year": "2024",
+    "medium": "Acrylic on Canvas",
+    "size": "160 × 110 cm",
+    "order": 5,
+    "cover": "IMG_5231.jpg"
+  },
+  "the-royal-pair": {
+    "title": "The Royal Pair",
+    "year": "2024",
+    "medium": "Acrylic on Canvas",
+    "size": "60 × 60 cm each",
+    "order": 6,
+    "cover": "IMG_8026.jpg"
+  },
+  "contrast": {
+    "title": "Contrast",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "100 × 70 cm",
+    "order": 7,
+    "cover": "contrast_swapped.jpg"
+  },
+  "aurelia": {
+    "title": "Aurelia",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "100 × 70 cm",
+    "order": 8,
+    "cover": "aurelia_02.jpg"
+  },
+  "blue-saray": {
+    "title": "Blue Saray",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "80 × 60 cm",
+    "order": 9,
+    "cover": "IMG_6206.jpg"
+  },
+  "mirrored-wings": {
+    "title": "Mirrored Wings",
+    "year": "2025",
+    "medium": "Handcrafted Artistic Mirror",
+    "size": "270 × 80 cm",
+    "order": 10,
+    "cover": "mirrored_wings_01.jpg"
+  },
+  "gravitas": {
+    "title": "Gravitas",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "100 × 80 cm",
+    "order": 11,
+    "cover": "IMG_6768.jpg"
+  },
+  "libyan-ghost": {
+    "title": "Libyan Ghost",
+    "year": "2023",
+    "medium": "Oil on Canvas",
+    "size": "170 × 130 cm",
+    "order": 12,
+    "cover": "IMG_6479.jpg"
+  },
+  "phantom": {
+    "title": "Phantom",
+    "year": "2025",
+    "medium": "Oil on Canvas",
+    "size": "120 × 90 cm",
+    "order": 13,
+    "cover": "IMG_6756.jpg"
+  },
+  "ivory": {
+    "title": "Ivory",
+    "year": "2025",
+    "medium": "Oil on Canvas",
+    "size": "120 × 90 cm",
+    "order": 14,
+    "cover": "IMG_2786.jpg"
+  },
+  "saray-nocturne": {
+    "title": "Saray Nocturne",
+    "year": "2024",
+    "medium": "Oil on Canvas",
+    "size": "100 × 70 cm",
+    "order": 15,
+    "cover": "IMG_6771.jpg"
+  }
+}
