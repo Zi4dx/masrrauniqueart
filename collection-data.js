@@ -8,11 +8,11 @@ window.CollectionData = [
     "size": "100 × 70 cm",
     "category": "Painting",
     "images": [
-      "images/works/river-garden/IMG_5224.jpg",
+      "images/works/river-garden/IMG_6775.jpg",
       "images/works/river-garden/IMG_4832.jpg",
       "images/works/river-garden/IMG_4964.jpg",
       "images/works/river-garden/IMG_5214.jpg",
-      "images/works/river-garden/IMG_6775.jpg"
+      "images/works/river-garden/IMG_5224.jpg"
     ]
   },
   {
@@ -24,10 +24,10 @@ window.CollectionData = [
     "size": "160 × 100 cm",
     "category": "Painting",
     "images": [
-      "images/works/the-gazelle/IMG_2028.jpg",
       "images/works/the-gazelle/gazelle_01.jpg",
       "images/works/the-gazelle/gazelle_02.jpg",
       "images/works/the-gazelle/gazelle_detail.jpg",
+      "images/works/the-gazelle/IMG_2028.jpg",
       "images/works/the-gazelle/IMG_2614.jpg",
       "images/works/the-gazelle/IMG_2615.jpg"
     ]
@@ -41,12 +41,12 @@ window.CollectionData = [
     "size": "160 × 100 cm",
     "category": "Painting",
     "images": [
-      "images/works/leogundy/leogundy_02.jpg",
+      "images/works/leogundy/leogundy_01.jpg",
       "images/works/leogundy/IMG_1517.jpg",
       "images/works/leogundy/IMG_1522.jpg",
       "images/works/leogundy/IMG_1569.jpg",
       "images/works/leogundy/IMG_2710.jpg",
-      "images/works/leogundy/leogundy_01.jpg",
+      "images/works/leogundy/leogundy_02.jpg",
       "images/works/leogundy/leogundy_03.jpg",
       "images/works/leogundy/leogundy_04.jpg"
     ]
@@ -75,10 +75,10 @@ window.CollectionData = [
     "size": "160 × 110 cm",
     "category": "Painting",
     "images": [
-      "images/works/aurelia-acrylic/IMG_5231.jpg",
+      "images/works/aurelia-acrylic/IMG_6773.jpg",
       "images/works/aurelia-acrylic/IMG_3307.jpg",
       "images/works/aurelia-acrylic/IMG_3405.jpg",
-      "images/works/aurelia-acrylic/IMG_6773.jpg"
+      "images/works/aurelia-acrylic/IMG_5231.jpg"
     ]
   },
   {
@@ -90,11 +90,11 @@ window.CollectionData = [
     "size": "60 × 60 cm each",
     "category": "Painting",
     "images": [
-      "images/works/the-royal-pair/IMG_8026.jpg",
+      "images/works/the-royal-pair/IMG_8015.jpg",
       "images/works/the-royal-pair/IMG_6753.jpg",
       "images/works/the-royal-pair/IMG_7998.jpg",
       "images/works/the-royal-pair/IMG_8001.jpg",
-      "images/works/the-royal-pair/IMG_8015.jpg"
+      "images/works/the-royal-pair/IMG_8026.jpg"
     ]
   },
   {
@@ -197,10 +197,10 @@ window.CollectionData = [
     "size": "120 × 90 cm",
     "category": "Painting",
     "images": [
-      "images/works/phantom/IMG_6756.jpg",
-      "images/works/phantom/IMG_3848.jpg",
       "images/works/phantom/IMG_3851.jpg",
-      "images/works/phantom/IMG_6754.jpg"
+      "images/works/phantom/IMG_3848.jpg",
+      "images/works/phantom/IMG_6754.jpg",
+      "images/works/phantom/IMG_6756.jpg"
     ]
   },
   {
@@ -212,9 +212,9 @@ window.CollectionData = [
     "size": "120 × 90 cm",
     "category": "Painting",
     "images": [
-      "images/works/ivory/IMG_2786.jpg",
-      "images/works/ivory/IMG_2674.jpg",
       "images/works/ivory/IMG_3661.jpg",
+      "images/works/ivory/IMG_2674.jpg",
+      "images/works/ivory/IMG_2786.jpg",
       "images/works/ivory/IMG_3663.jpg"
     ]
   },
