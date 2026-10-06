@@ -132,10 +132,10 @@ window.CollectionData = [
     "size": "80 × 60 cm",
     "category": "Painting",
     "images": [
-      "images/works/blue-saray/IMG_6206.jpg",
+      "images/works/blue-saray/IMG_6777.jpg",
       "images/works/blue-saray/IMG_6195.jpg",
       "images/works/blue-saray/IMG_6197.jpg",
-      "images/works/blue-saray/IMG_6777.jpg"
+      "images/works/blue-saray/IMG_6206.jpg"
     ]
   },
   {
